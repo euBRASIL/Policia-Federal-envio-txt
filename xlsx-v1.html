@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload e Listagem de Arquivo XLSX</title>
+  <!-- Inclua o CSS do Bootstrap -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f0f5f9; /* Azul claro */
+    }
+
+    .container {
+      background-color: #ffffff; /* Branco */
+      border-radius: 20px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Efeito de sombra 3D */
+      padding: 30px;
+      margin-top: 50px;
+    }
+
+    h1, h2 {
+      color: #003366; /* Azul escuro */
+    }
+
+    .table {
+      border: 1px solid #b3c6d4; /* Azul claro */
+      border-radius: 10px;
+    }
+
+    .table th, .table td {
+      border: 1px solid #b3c6d4; /* Azul claro */
+    }
+
+    .pagination {
+      justify-content: center;
+    }
+
+    .pagination .page-item.active .page-link {
+      background-color: #003366; /* Azul escuro */
+      border-color: #003366; /* Azul escuro */
+    }
+
+    .pagination .page-link {
+      color: #003366; /* Azul escuro */
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Upload de Arquivo XLSX</h1>
+  <input type="file" id="fileInput" accept=".xlsx">
+  
+  <h2>Conteúdo da Planilha</h2>
+  <table class="table">
+    <thead>
+      <tr id="tableHeader">
+        <!-- Aqui serão inseridos os cabeçalhos da planilha -->
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+      <!-- Aqui serão inseridos os dados da planilha -->
+    </tbody>
+  </table>
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination" id="pagination">
+      <!-- Aqui será inserida a paginação -->
+    </ul>
+  </nav>
+</div>
+
+<!-- Inclua os scripts JavaScript necessários -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.3/xlsx.full.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $("#fileInput").change(function(evt){
+      var files = evt.target.files;
+      var file = files[0];
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        var data = new Uint8Array(e.target.result);
+        var workbook = XLSX.read(data, {type: 'array'});
+        var firstSheetName = workbook.SheetNames[0];
+        var worksheet = workbook.Sheets[firstSheetName];
+        var tableData = XLSX.utils.sheet_to_json(worksheet, {header: 1});
+        var headers = tableData[0];
+        var body = tableData.slice(1);
+        renderTable(headers, body);
+      };
+      reader.readAsArrayBuffer(file);
+    });
+  });
+
+  function renderTable(headers, body) {
+    var headerRow = $("#tableHeader");
+    var bodyRows = $("#tableBody");
+    headerRow.empty();
+    bodyRows.empty();
+
+    headers.forEach(function(header) {
+      headerRow.append("<th>" + header + "</th>");
+    });
+
+    body.forEach(function(row) {
+      var tr = "<tr>";
+      row.forEach(function(cell) {
+        tr += "<td>" + cell + "</td>";
+      });
+      tr += "</tr>";
+      bodyRows.append(tr);
+    });
+
+    renderPagination(body.length);
+  }
+
+  function renderPagination(numRows) {
+    var pagination = $("#pagination");
+    pagination.empty();
+    var numPages = Math.ceil(numRows / 10);
+    for (var i = 1; i <= numPages; i++) {
+      pagination.append('<li class="page-item"><a class="page-link" href="#">' + i + '</a></li>');
+    }
+
+    pagination.find('li').click(function() {
+      var pageNum = parseInt($(this).text());
+      showPage(pageNum);
+    });
+
+    showPage(1);
+  }
+
+  function showPage(pageNum) {
+    var rows = $("#tableBody tr");
+    var start = (pageNum - 1) * 10;
+    var end = start + 10;
+    rows.hide().slice(start, end).show();
+  }
+</script>
+</body>
+</html>
