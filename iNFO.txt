@@ -1,0 +1,62 @@
+https://www.gov.br/pf/pt-br/assuntos/produtos-quimicos/arquivos-siproquim2
+
+Por intermédio da Divisão de Controle de Produtos Químicos (DCPQ) a Polícia Federal realiza o controle e a fiscalização da fabricação, produção, armazenamento, transformação, embalagem, compra, venda, comercialização, aquisição, posse, doação, empréstimo, permuta, remessa, transporte, distribuição, importação, exportação, reexportação, cessão, reaproveitamento, reciclagem, transferência e utilização de produtos químicos que possam ser utilizados como insumo na elaboração de drogas ilícitas, cumprindo o disposto na Lei 10.357/2001 (e regulamentações).
+
+https://www.gov.br/pf/pt-br/assuntos/produtos-quimicos/arquivos-siproquim2
+
+Credenciamento de Empresas
+==========================
+Roteiro de acesso ao sistema Siproquim2
+Como se cadastrar no canal GOV.BR
+Como acessar o sistema Siproquim2
+Como se habilitar a operar pela empresa
+Como trocar operador de uma empresa
+Como habilitar usuário no Siproquim2
+Como efetuar login no Siproquim2
+Como saber se meu certificado digital está funcionado
+
+( acesso: https://servicos.dpf.gov.br/siproquim-internet/ ) + Login .gov.br
+
+01 - Acesso, Menu e Declarar Mapas
+02 - Painel de Declaração e Demonstrativo Geral
+03 - Declaração do Estoque Inicial
+04 - Movimentação Nacional
+05 - Movimentação Internacional
+06 - Utilização - Consumo
+07 - Utilização - Transformação
+08 - Utilização - Produção
+09 - Fabricação
+10 - Armazenagem
+11 - Transporte Nacional
+12 - Transporte Internacional
+13 - Registro de Roubo, Furto e Extravio
+14 - Registro de Destruição
+15 - Registro de Perda e Evaporação
+16 - Controle de Estoque
+17 - Importar Arquivo
+18 - Alterar Mapas
+19 - Enviar Mapas
+20 - Retificar Mapas
+21 - Consultar Protocolo e Mapas
+
+https://www.gov.br/pf/pt-br/assuntos/produtos-quimicos/mapa-de-controle/mapas-de-controle
+
+Mapas de Controle
+=================
+Mapa de Controle é o documento que comprova o envio, pela pessoa devidamente cadastrada e licenciada, do mapa mensal de controle de produtos químicos à Polícia Federal.
+
+Mapa mensal digitado em formato XML gerado a partir do Programa Mapas. O mapa deverá ser enviado até o 10º dia útil do mês subsequente.
+
+O sistema Siproquim 2 é todo em ambiente web, mas para acessar o sistema utilizando a sua certificação digital, é necessário ter instalado o aplicativo "Assinador PF".
+
+***********************************************************
+Download do "Assinador PF" (processadores de 32 e 64 bits)
+***********************************************************
+O aplicativo "Assinador PF" não foi desenvolvido para utilização em dispositivos móveis. O mesmo foi homologado para utilização em ambiente Windows de 32 ou 64 bits. 
+
+
+https://servicos.dpf.gov.br/download/certificacao/
+https://www.gov.br/pf/pt-br/assuntos/produtos-quimicos/arquivos-siproquim2/documentos/testeassinadorpf.pdf
+
+  ****************************************************************************************
+<< https://www.gov.br/pf/pt-br/assuntos/produtos-quimicos/arquivos-siproquim2/arquivo-txt >>

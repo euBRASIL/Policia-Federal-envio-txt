@@ -1,0 +1,279 @@
+Para importação das informações sobre produtos químicos controlados geradas a partir de outros
+sistemas para o SIPROQUIM 2, é necessária a geração de arquivo-texto específico para cada mapa mensal,
+devendo seguir a estrutura ilustrada nesse documento, definida pela Divisão de Controle de Produtos Químicos
+(DCPQ). É importante ressaltar que:
+
+• O posicionamento de cada campo é fixo;
+• Para os campos alfanuméricos, os espaços não utilizados deverão ser preenchidos com brancos
+à direita;
+• Para os campos numéricos, preencher os espaços não utilizados com zeros à esquerda;
+• Os números com casas decimais deverão ser informados com vírgula. Ex: 099,23;
+• A contagem dos caracteres inicia-se em 1;
+• Cada linha do arquivo-texto corresponde a um registro a ser inserido no banco de dados;
+• Sugere-se, para manter a padronização, que o nome do arquivo-texto siga o seguinte formato:
+o M = Arquivo de Mapas;
+o A = Ano;
+o M = Mês;
+o CNPJ = CNPJ da empresa declarante;
+
+-------------------------------------------------------------------------------------------------------------------
+3.1. Estrutura de cada seção
+
+3.1.1. Seção de Identificação da Empresa/Mapa (EM): Identificará a empresa e o mapa de referência para a
+declaração mensal. Estrutura da seção:
+------------------------------------------------------------------------------------------------------------------
+Cada informação necessita ser respondida para cada CNPJ 
+--------------------------------------------------------
+Exemplo:
+EM98765432000198JUN201711100001
+------------------------------------------------------------------------------------------------------------------
+3.1.2. Seção Demonstrativo Geral (DG): Descreverá os produtos controlados (PR) e os produtos compostos (PC) de
+substâncias controladas (SC) trabalhados pelo declarante. Essa seção poderá ser composta de uma subseção
+denominada Identificação do Resíduo Controlado (RC) caso o declarante trabalhe com resíduos de produtos
+químicos controlados. Estrutura da seção:
+
+Exemplo:
+DG
+PRTPN12881067(111111111111111111111111111111111111111111111111111111111111hg111111)07727,23
+PC2323.23.66(1111111111111Nome comercial Produto11111111111111111111111111111111g)32,32
+SCTPN1322109623
+SCTPN1323109723
+
+-----------------------------------------------------------------------------------------------------------------
+3.1.3. Seção Movimentação Nacional de Produtos Químicos (MVN): Descreverá as operações de entrada e saída
+em função de compra (COM), venda (VEN), doação (DOA), remessa (REM), retorno (RET) e transferência (TRA)
+de PQC. Estrutura da seção:
+
+Códigos de operação de Saída:
+
+• SV: Venda
+• ST: Transferência
+• SA: Devolução/Retorno de produto armazenado
+• SI: Devolução/Retorno de produto industrializado
+• SD: Doação
+• SR: Remessa para armazenagem
+• SP: Remessa de produto para industrialização
+• SO: Outras remessas
+
+Exemplo:
+MVNSST09439030000173nomerazaosocialfornecedornomerazaosocialfornecedornomerazaosocialforn12121219
+0928/01/2017FT
+-----------------------------------------------------------------------------------------------------------------
+3.1.3.1. Subseção Movimento (MM): Registra efetiva movimentação de produtos químicos controlados e/ou
+resíduo. Ressalta-se que os produtos elencados nessa subseção deverão estar previamente inseridos na
+seção Demonstrativo Geral (DG). Seguir a seguinte estrutura:
+
+Exemplo:
+MMPRTPN1335110803123,23 999.999,999K
+MMPC1111.11.11 23,23 999.999,999K
+-----------------------------------------------------------------------------------------------------------------
+3.1.3.2. Subseção Transporte (MT): Caso o transporte dos produtos químicos movimentados na NF tenha sido
+realizado sob responsabilidade de uma empresa (T) Terceirizada, descrita no item da seção 3.1.3, deverão
+ser informados detalhes da transportadora, seguindo a seguinte estrutura:
+
+Exemplo:
+MA 01337593184 razão social armazenadorarazão social armazenadorarazão social armazenendereço
+armazenadoraendereço armazenadoraendereço armazenadoraendereç70.070-
+93523582complementocompleme2bairrobairrobairrobairrobairroDF5300108
+-----------------------------------------------------------------------------------------------------------------
+3.1.4. Seção Movimentação Internacional de Produtos Químicos (MVI): Descreverá as operações exportação (E),
+Importação (I), e Importação por Conta e Ordem (C) de PQC. Estrutura da seção:
+
+Exemplo:
+TRA 01337593184 razão social armazenadorarazão social armazenadorarazão social armazen
+-----------------------------------------------------------------------------------------------------------------
+3.1.4.2. Subseção Responsável pelo Transporte (TRI): Descreverá as informações da pessoa responsável pelo
+transporte. Deve ser preenchido ao informar na Movimentação Internacional que o responsável pelo
+transporte é uma Terceirizada Internacional. Seguir a seguinte estrutura:
+
+Exemplo:
+TRIrazão social armazenadorarazão social armazenadorarazão social armazen
+-----------------------------------------------------------------------------------------------------------------
+3.1.4.3. Subseção Responsável pela Armazenagem (AMZ): Descreverá o endereço da pessoa responsável pela
+armazenagem. Deve ser preenchido ao realizar uma movimentação de Exportação ou de Importação por
+Conta e Ordem cujo responsável pelo transporte seja o próprio importador ou uma terceirizada nacional.
+Seguir a seguinte estrutura:
+
+Exemplo:
+AMZ 01337593184 razão social armazenadorarazão social armazenadorarazão social armazenendereço
+armazenadoraendereço armazenadoraendereço armazenadoraendereç70.070-
+93523582complementocompleme2bairrobairrobairrobairrobairroDF5300108
+-----------------------------------------------------------------------------------------------------------------
+3.1.4.4. Subseção Local de Entrega (TER): Descreverá o endereço do local de entrega. Deve ser preenchido ao
+realizar uma movimentação de Importação. Seguir a seguinte estrutura:
+
+Exemplo:
+TER 01337593184 razão social armazenadorarazão social armazenadorarazão social armazenendereço
+armazenadoraendereço armazenadoraendereço armazenadoraendereç70.070-
+93523582complementocompleme2bairrobairrobairrobairrobairroDF5300108
+-----------------------------------------------------------------------------------------------------------------
+3.1.4.5. Subseção Adquirente (ADQ): Descreverá o endereço do adquirente da movimentação. Deve ser preenchido
+ao realizar uma movimentação de Importação por Conta e Ordem. Seguir a seguinte estrutura:
+
+ADQ 01337593184 razão social armazenadorarazão social armazenadorarazão social armazenendereço
+armazenadoraendereço armazenadoraendereço armazenadoraendereç70.070-
+93523582complementocompleme2bairrobairrobairrobairrobairroDF5300108
+-----------------------------------------------------------------------------------------------------------------
+3.1.4.6. Subseção Nota Fiscal (NF): Descreverá as informações referentes a nota fiscal, e seus produtos. Deve ser
+preenchido em qualquer tipo de movimentação internacional. Atentar que, para Importação por Conta e
+Ordem, deve ser informado a nota fiscal de entrada e de saída uma após a outra, antes de informar os
+produtos. Seguir a seguinte estrutura:
+
+Exemplo:
+Exemplo com Exportação ou Importação:
+NF121020101011/01/2017S
+PC2323.23.66 32,32 999.999,999K
+Exemplo com Importação por Conta e Ordem:
+NF101020101011/01/2017E
+NF121020101011/01/2017S
+PC2323.23.66 32,32 999.999,999K
+-----------------------------------------------------------------------------------------------------------------
+3.1.5. Seção Utilização para Produção (UP): Registra os efetivos quantitativos consumidos pelo declarante no mês
+de referência (UP) para a produção de produtos químicos controlados diversos (UF). Os produtos químicos
+elencados nessa Seção deverão ser anteriormente registrados na seção Demonstrativo Geral Seguir a
+estrutura abaixo:
+
+Ex:
+UPPRTPN1288106707727,23 999.999,999K
+-----------------------------------------------------------------------------------------------------------------
+3.1.5.1. Subseção Produto Final Produzido – Produto Químico Controlado (UF): Registra os efetivos quantitativos
+de produtos químicos produzidos pelo declarante no mês de referência (UP). Os produtos químicos
+elencados nessa Seção deverão ser anteriormente registrados na seção Demonstrativo Geral. Essa seção
+deve ser informada caso a produção tenha como produto final um Produto Químico Controlado. Seguir a
+estrutura abaixo:
+
+UFPC2323.23.66 32,32
+999.999,999K(DescriçãoDescriçãoDescriçãoDescriçãoDescriçãoDescriçãoDescriçãoDescriçãoDescriçãoDescriçãoD
+escriçãoDescriçãoDescriçãoDescriçãoDescriçãoDescriçãoDescriçãoDescriçãoDescriçãoDescriçãoDescriçãoDescriç
+ão)18/01/2017
+-----------------------------------------------------------------------------------------------------------------
+3.1.6. Seção Utilização para Transformação (UT): Registra os efetivos quantitativos consumidos pelo declarante no
+mês de referência (UT) para a transformação em produtos químicos controlados diversos (UZ). Os produtos
+químicos elencados nessa Seção deverão ser anteriormente registrados na seção Demonstrativo Geral Seguir
+a estrutura abaixo:
+
+Exemplo:
+UTPRTPN1288106707727,23 999.999,999K21/01/2017
+-----------------------------------------------------------------------------------------------------------------
+3.1.6.1. Subseção Produto Final Produzido na Transformação (UZ): Registra os efetivos quantitativos de produtos
+químicos transformados pelo declarante no mês de referência (UP). Os produtos químicos elencados nessa
+Seção deverão ser anteriormente registrados na seção Demonstrativo Geral Seguir a estrutura abaixo:
+
+Exemplo:
+UZPC2323.23.66 32,32 999.999,999K21/01/2017(reação quimica reação quimica reação quimica reação
+quimica reação quimica reação quimica reação quimica reação quimica reação quimica reação quimica reação
+quimica reação quimica reação quimica rea)
+-----------------------------------------------------------------------------------------------------------------
+3.1.7. Seção Utilização para consumo (UC): Registra os efetivos quantitativos consumidos pelo declarante no mês
+de referência. Os produtos químicos elencados nessa Seção deverão ser anteriormente registrados na seção
+Demonstrativo Geral Seguir a estrutura abaixo:
+
+Exemplo:
+UCPRTPN1335110803123,23 999.999,999K1(Descrição do ConsumoDescrição do ConsumoDescrição do
+Consumo)13/01/2017
+-----------------------------------------------------------------------------------------------------------------
+3.1.8. Seção Fabricação (FB): Registra os efetivos quantitativos de produtos químicos controlados fabricados pelo
+declarante no mês de referência com base em produtos químicos não controlados. Os produtos químicos
+elencados nessa Seção deverão ser anteriormente registrados na seção Demonstrativo Geral Seguir a
+estrutura abaixo:
+
+Exemplo:
+FBPRTPN13351108 03123,23 999.999,999K06/01/2017
+-----------------------------------------------------------------------------------------------------------------
+3.1.9. Seção Transporte Nacional (TN): Registra a movimentação de produtos químicos transportados. Essa seção
+deverá ser utilizada por empresas cuja atividade (CNAE), principal ou secundária, seja transporte. Os produtos
+ESPECIFICAÇÃO FUNCIONAL / VERSÃO DO TEMPLATE: 1.0 PÁGINA 12 / 16
+químicos elencados na seção, deverão ser anteriormente registrados na seção Demonstrativo Geral. Seguir a
+estrutura:
+
+Exemplo:
+TN 01337593184
+nomerazaosocialfornecedornomerazaosocialfornecedornomerazaosocialforne451232563828/01/2017
+01337593184 nomerazaosocialfornecedornomerazaosocialfornecedornomerazaosocialfornPP
+-----------------------------------------------------------------------------------------------------------------
+3.1.9.1. Subseção Conhecimento de Carga (CC): O preenchimento dessa Subseção é obrigatório quando se tratar de
+um transporte Intermunicipal ou Interestadual. Registra os detalhes acerca dos conhecimentos de carga
+utilizados na operação de transporte. Seguir a estrutura:
+
+Exemplo:
+ CC11111111110/10/201810/10/2018ResponsávelRecebimentoResponsávelRecebimentoResponsávelRecebimen
+toRespRO
+CC11111111110/10/201810/10/2018ResponsávelRecebimentoResponsávelRecebimentoResponsávelRecebimen
+toRespROAE
+-----------------------------------------------------------------------------------------------------------------
+3.1.9.2. Subseção Local de Retirada (LR): O preenchimento dessa Subseção é obrigatório para os casos de Local de
+Retirada = (A) Armazenagem Terceirizada na Seção Transporte (TR). Seguir a estrutura abaixo:
+
+Exemplo:
+Ex:
+LE 01337593184 NomeLocalRetiradaNomeLocalRetiradaNomeLocalRetiradaNomeLocalRetiradaNoEndereco
+local de entrega Endereco local de entrega Endereco local de70.070-93523445complemento do endecbairro
+local de entrega bairroDF5300108
+-----------------------------------------------------------------------------------------------------------------
+3.1.9.4. Subseção Movimentação de Transporte Nacional (TM): Registra a efetiva movimentação de transporte de
+produtos químicos controlados, efetivada pelas empresas transportadoras habilitadas. Os produtos
+químicos elencados nessa subseção, deverão ser anteriormente registrados na seção Demonstrativo Geral
+Seguir a estrutura abaixo:
+
+Exemplo:
+TMPC2323.23.66 32,32 999.999,999K
+TMPRTPN1288106707727,23 999.999,999K
+-----------------------------------------------------------------------------------------------------------------
+3.1.10. Seção Transporte Internacional (TI): Descreverá as operações exportação (EX) e Importação (IM). Estrutura
+da seção:
+
+Dados da empresa:
+
+• Se for uma exportação, deve ser informado os dados da pessoa de origem da carga. Se for uma
+importação, informar os dados da pessoa de destino da carga.
+-----------------------------------------------------------------------------------------------------------------
+3.1.10.1. Subseção Local de Retirada (LR): O preenchimento dessa Subseção é obrigatório para os casos de
+Operação = (E) Exportação na Seção Transporte Internacional (TI). Seguir a estrutura abaixo:
+
+Exemplo:
+LR 01337593184 NomeLocalRetiradaNomeLocalRetiradaNomeLocalRetiradaNomeLocalRetiradaNoEndereco
+local de entrega Endereco local de entrega Endereco local de70.070-93523445complemento do endecbairro
+local de entrega bairroDF5300108
+-----------------------------------------------------------------------------------------------------------------
+3.1.10.2. Subseção Local de Entrega (LE): O preenchimento dessa Subseção é obrigatório para os casos de
+Operação = (I) Importação na Seção Transporte Internacional (TI). Seguir a estrutura abaixo:
+
+Exemplo:
+LE 01337593184 NomeLocalRetiradaNomeLocalRetiradaNomeLocalRetiradaNomeLocalRetiradaNoEndereco
+local de entrega Endereco local de entrega Endereco local de70.070-93523445complemento do endecbairro
+local de entrega bairroDF5300108
+-----------------------------------------------------------------------------------------------------------------
+3.1.10.3. Subseção Pessoa Internacional (PI): O preenchimento dessa Subseção é obrigatório para todo
+Transporte Internacional (TI). Para operação de Importação, será utilizado como pessoa de origem da carga.
+Para Exportação, como pessoa destino da carga. Seguir a estrutura abaixo:
+
+Exemplo:
+TZPC2323.23.66 32,32 999.999,999K
+TZPRTPN1288106707727,23 999.999,999K
+-----------------------------------------------------------------------------------------------------------------
+3.1.11. Seção Armazenamento (AR): Registra a movimentação de produtos químicos armazenados. Essa
+seção deverá ser utilizada por empresas cuja atividade (CNAE), principal ou secundária, seja armazenamento.
+Os produtos químicos elencados na seção, deverão ser anteriormente registrados na seção Demonstrativo
+Geral. Seguir a estrutura:
+
+Exemplo:
+AR05981967000115(nome contratante nome contratante nome contratante nome contratante
+no)123412433323/01/201723/01/2017E
+-----------------------------------------------------------------------------------------------------------------
+3.1.11.1. Subseção Produtos Armazenados (PA): Registra efetiva movimentação de armazenagem produtos
+químicos controlados e/ou resíduo. Ressalta-se que os produtos elencados nessa subseção deverão estar
+previamente inseridos na seção Demonstrativo Geral (DG). Seguir a seguinte estrutura:
+
+Exemplo:
+PAPC2323.23.66 32,32 999.999,999K
+PAPRTPN1288106707727,23 999.999,999K
+-----------------------------------------------------------------------------------------------------------------
+
+4. Considerações finais
+Após a importação dos dados advindos do arquivo texto, as validações referentes a erros e alertas já existentes
+e aplicadas aos diversos formulários do módulo MAPAS serão aplicadas, continuando o processo como se digitado
+fosse.
+
+
+
+
